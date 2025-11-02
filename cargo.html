@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lubis Jeans</title>
+<link rel="icon" type="image/png" href="Imag.jpg">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Montserrat', sans-serif; background-color: #f8f9fa; padding-top: 70px; }
+    .navbar { transition: background-color 0.5s ease; font-weight: 700; }
+    .navbar-brand img { height: 40px; }
+    .nav-link { text-transform: uppercase; }
+    .navbar-interior { background-color: rgba(0, 0, 0, 0.9) !important; }
+    .page-carousel .carousel-item { height: 65vh; min-height: 400px; background-size: cover; background-position: center; }
+    .carousel-caption { background-color: rgba(0, 0, 0, 0.5); padding: 1.5rem; border-radius: 0.5rem; bottom: 15%; }
+    .product-section { padding: 5rem 0; }
+    .product-card { border: none; border-radius: 0.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: transform .3s ease,box-shadow .3s ease; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,.12); }
+    .product-card img { border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; aspect-ratio: 4/5; object-fit: cover; }
+    .product-card .card-title { font-weight: 700; font-size: 1.1rem; color: #333; }
+    .card-price { font-weight: 700; color: #0d6efd; font-size: 1.2rem; }
+    .footer { background-color: #111; color: #ccc; }
+    .footer .social-icons a { font-size: 1.5rem; color: #ccc; transition: color .3s ease; }
+    .footer .social-icons a:hover { color: #fff; }
+    .cart-icon-container { position: relative; cursor: pointer; }
+    .cart-counter { position: absolute; top: -5px; right: -10px; background-color: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 10px; font-weight: 700; display: none; }
+  </style>
+</head>
+<body>
+
+<!-- BARRA DE NAVEGACIÓN CON "FALDAS" AÑADIDO -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-interior">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="logo.png" alt="Logo Lubiz Jeans"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="jeans.html">Jeans</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="cargos.html">Cargos</a></li>
+        <li class="nav-item"><a class="nav-link" href="faldas.html">Faldas</a></li>
+      </ul>
+      <ul class="navbar-nav d-flex flex-row">
+        <li class="nav-item ms-3"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal"><i class="bi bi-person fs-4"></i></a></li>
+        <li class="nav-item ms-3"><a class="nav-link cart-icon-container" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal"><i class="bi bi-cart fs-4"></i><span class="cart-counter" id="cart-counter">0</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- CARRUSEL DE IMÁGENES CON FOTOS ACTUALIZADAS -->
+<div id="pageCarousel" class="carousel slide page-carousel" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="background-image: url('lu1.png.jpg');">
+      <div class="carousel-caption d-none d-md-block"><h2>Pantalones Cargo</h2><p>Estilo urbano, máxima funcionalidad y comodidad.</p></div>
+    </div>
+    <div class="carousel-item" style="background-image: url('lu2.png.jpg');">
+       <div class="carousel-caption d-none d-md-block"><h2>La Mejor Calidad</h2><p>Confeccionados con materiales resistentes y duraderos.</p></div>
+    </div>
+    <div class="carousel-item" style="background-image: url('lu3.png.jpg');">
+       <div class="carousel-caption d-none d-md-block"><h2>Variedad de Colores</h2><p>Encuentra el tono perfecto que va contigo.</p></div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#pageCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Anterior</span></button>
+  <button class="carousel-control-next" type="button" data-bs-target="#pageCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Siguiente</span></button>
+</div>
+
+
+<!-- SECCIÓN DE PRODUCTOS CON FOTOS ACTUALIZADAS -->
+<section class="product-section bg-light">
+  <div class="container">
+    <!-- PRIMERA FILA DE 4 PRODUCTOS -->
+    <div class="row g-4">
+      <!-- Producto 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-01">
+          <img src="lu4.png.jpg" class="card-img-top" alt="Pantalón Cargo Negro">
+          <div class="card-body text-center d-flex flex-column">
+            <h5 class="card-title">Pantalón Cargo Negro</h5><p class="card-price">S/ 115.00</p>
+            <div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-01" id="talla-28-c01" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-28-c01">28</label><input type="radio" class="btn-check" name="talla-cargo-01" id="talla-30-c01" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-30-c01">30</label><input type="radio" class="btn-check" name="talla-cargo-01" id="talla-32-c01" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c01">32</label></div></div>
+            <div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div>
+          </div>
+        </div>
+      </div>
+      <!-- Producto 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-02">
+          <img src="lu5.png.jpg" class="card-img-top" alt="Pantalón Cargo Verde Militar">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Cargo Verde Militar</h5><p class="card-price">S/ 115.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-02" id="talla-28-c02" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-28-c02">28</label><input type="radio" class="btn-check" name="talla-cargo-02" id="talla-30-c02" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-30-c02">30</label><input type="radio" class="btn-check" name="talla-cargo-02" id="talla-32-c02" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c02">32</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+      <!-- Producto 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-03">
+          <img src="lu6.png.jpg" class="card-img-top" alt="Pantalón Cargo Beige">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Pantalón Cargo Beige</h5><p class="card-price">S/ 120.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-03" id="talla-30-c03" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-30-c03">30</label><input type="radio" class="btn-check" name="talla-cargo-03" id="talla-32-c03" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c03">32</label><input type="radio" class="btn-check" name="talla-cargo-03" id="talla-34-c03" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-34-c03">34</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+      <!-- Producto 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-04">
+          <img src="lu7.png.jpg" class="card-img-top" alt="Pantalón Cargo Gris Oscuro">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Cargo Gris Oscuro</h5><p class="card-price">S/ 120.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-04" id="talla-30-c04" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-30-c04">30</label><input type="radio" class="btn-check" name="talla-cargo-04" id="talla-32-c04" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c04">32</label><input type="radio" class="btn-check" name="talla-cargo-04" id="talla-34-c04" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-34-c04">34</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+    </div>
+    <!-- SEGUNDA FILA DE 4 PRODUCTOS -->
+    <div class="row g-4 mt-4">
+      <!-- Producto 5 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-05">
+          <img src="lu8.png.jpg" class="card-img-top" alt="Cargo Camuflado">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Cargo Camuflado</h5><p class="card-price">S/ 130.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-05" id="talla-28-c05" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-28-c05">28</label><input type="radio" class="btn-check" name="talla-cargo-05" id="talla-30-c05" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-30-c05">30</label><input type="radio" class="btn-check" name="talla-cargo-05" id="talla-32-c05" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c05">32</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+      <!-- Producto 6 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-06">
+          <img src="lu9.png.jpg" class="card-img-top" alt="Cargo Drill Plomo">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Cargo Drill Plomo</h5><p class="card-price">S/ 125.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-06" id="talla-30-c06" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-30-c06">30</label><input type="radio" class="btn-check" name="talla-cargo-06" id="talla-32-c06" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c06">32</label><input type="radio" class="btn-check" name="talla-cargo-06" id="talla-34-c06" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-34-c06">34</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+      <!-- Producto 7 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-07">
+          <img src="lu10.png.jpg" class="card-img-top" alt="Cargo Azul Acero">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Cargo Azul Acero</h5><p class="card-price">S/ 115.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-07" id="talla-28-c07" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-28-c07">28</label><input type="radio" class="btn-check" name="talla-cargo-07" id="talla-30-c07" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-30-c07">30</label><input type="radio" class="btn-check" name="talla-cargo-07" id="talla-32-c07" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c07">32</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+      <!-- Producto 8 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 d-flex align-items-stretch">
+        <div class="card product-card w-100" data-id="cargo-08">
+          <img src="lu11.png.jpg" class="card-img-top" alt="Cargo Marrón">
+          <div class="card-body text-center d-flex flex-column"><h5 class="card-title">Pantalón Cargo Marrón</h5><p class="card-price">S/ 120.00</p><div class="my-3"><small class="text-muted d-block mb-2">TALLA:</small><div class="btn-group" role="group"><input type="radio" class="btn-check" name="talla-cargo-08" id="talla-30-c08" autocomplete="off" checked><label class="btn btn-outline-secondary btn-sm" for="talla-30-c08">30</label><input type="radio" class="btn-check" name="talla-cargo-08" id="talla-32-c08" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-32-c08">32</label><input type="radio" class="btn-check" name="talla-cargo-08" id="talla-34-c08" autocomplete="off"><label class="btn btn-outline-secondary btn-sm" for="talla-34-c08">34</label></div></div><div class="mt-auto"><div class="input-group mb-3"><span class="input-group-text">Cant.</span><input type="number" class="form-control quantity-input" value="1" min="1"></div><button class="btn btn-primary w-100" onclick="addToCart(this)"><i class="bi bi-cart-plus"></i> Añadir</button></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer y Modales (sin cambios) -->
+<footer class="footer py-5"><div class="container text-center"><p class="mb-3">Síguenos en nuestras redes sociales</p><div class="social-icons mb-4"><a href="https://wa.me/51916796360" class="mx-3"><i class="bi bi-whatsapp"></i></a><a href="#" class="mx-3"><i class="bi bi-instagram"></i></a><a href="#" class="mx-3"><i class="bi bi-tiktok"></i></a><a href="#" class="mx-3"><i class="bi bi-facebook"></i></a></div><p class="mb-0 small">&copy; 2025 Lubiz Jeans. Todos los derechos reservados.</p></div></footer>
+<div class="modal fade" id="cartModal" tabindex="-1"><div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header"><h5 class="modal-title"><i class="bi bi-cart-check"></i> Tu Carrito</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body" id="cart-items"></div><div class="modal-footer"><h5 class="me-auto">Total: <span id="cart-total" class="fw-bold">S/ 0.00</span></h5><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button><button type="button" class="btn btn-success" id="checkout-button" onclick="checkout()"><i class="bi bi-qr-code-scan"></i> Pagar con Yape</button></div></div></div></div>
+<div class="modal fade" id="yapeModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header" style="background-color: #7b217a; color: white;"><h5 class="modal-title">Pagar con Yape</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button></div><div class="modal-body text-center"><p class="fw-bold">Escanea este QR para pagar</p><img src="imagenes/qr-yape.png" alt="Código QR de Yape" class="img-fluid mb-3" style="max-width: 250px;"><h4 id="yape-total-price"></h4><div class="alert alert-info mt-3"><strong>Instrucciones:</strong><ol class="text-start small"><li>Abre tu app Yape y escanea el código QR.</li><li>Ingresa el monto total y realiza el pago.</li><li>Envíanos la constancia al WhatsApp.</li></ol></div><a id="yape-whatsapp-link" href="#" target="_blank" class="btn btn-success w-100 mt-2"><i class="bi bi-whatsapp"></i> Enviar constancia</a></div></div></div></div>
+<div class="modal fade" id="authModal" tabindex="-1"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">Iniciar Sesión / Registrarse</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body text-center"><p class="mb-4">Elige cómo quieres continuar:</p><div class="d-grid gap-3"><a href="login.html" class="btn btn-primary btn-lg">Iniciar Sesión</a><div class="my-3 text-muted">o</div><div class="d-flex justify-content-center"><div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div></div></div></div></div></div></div>
+
+<!-- Scripts -->
+<div id="g_id_onload" data-client_id="TU_CLIENT_ID_DE_GOOGLE" data-context="signin" data-ux_mode="popup" data-callback="handleCredentialResponse" data-auto_prompt="false"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script src="car.js"></script>
+</body>
+</html>

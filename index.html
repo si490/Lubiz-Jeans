@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- ======================================================================= -->
+  <!-- =================== CONFIGURACIÓN GENERAL (HEAD) ====================== -->
+  <!-- ======================================================================= -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lubis Jeans</title>
+<link rel="icon" type="image/png" href="Imag.jpg">
+
+  <!-- Bootstrap CSS: Framework para diseño responsive y componentes predefinidos. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons: Biblioteca de íconos SVG. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <!-- Google Fonts: Para usar tipografías personalizadas (en este caso, Montserrat). -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ======================================================================= -->
+  <!-- ======================= ESTILOS PERSONALIZADOS (CSS) ================== -->
+  <!-- ======================================================================= -->
+  <style>
+    /* --- Estilos Generales --- */
+    body {
+      /* Define la tipografía principal y el color de fondo para toda la página. */
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    /* --- Estilos de la Barra de Navegación (Navbar) --- */
+    .navbar {
+      /* Transición suave para el cambio de color al hacer scroll. */
+      transition: background-color 0.5s ease;
+      padding: 1rem 0; /* Espaciado interno vertical. */
+    }
+    .navbar-brand {
+      /* Estilo para el nombre de la marca/logo. */
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+    .navbar-brand img {
+      /* Ajusta la altura del logo. */
+      height: 50px;
+    }
+    .nav-link {
+      /* Estilo para los enlaces de navegación. */
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    .navbar.scrolled {
+      /* Clase que se añade con JavaScript al hacer scroll para hacer el fondo oscuro. */
+      background-color: rgba(0, 0, 0, 0.9) !important;
+    }
+    
+    /* CORRECCIÓN: Estilos para los íconos de usuario y carrito para hacerlos más claros y visibles */
+    .navbar .nav-link .bi {
+        color: rgba(255, 255, 255, 0.8); /* Color blanco semitransparente para que sea claro */
+        transition: color 0.3s ease; /* Transición suave para el cambio de color */
+        vertical-align: middle; /* Alinea verticalmente los íconos */
+    }
+    .navbar .nav-link:hover .bi {
+        color: #fff; /* Color blanco sólido al pasar el mouse */
+    }
+
+    /* --- Estilos del Carrusel de Imágenes (Hero) --- */
+    #hero-carousel, .carousel-item {
+      /* Define una altura que ocupa toda la pantalla del dispositivo. */
+      height: 100vh;
+      min-height: 600px;
+    }
+    .carousel-item {
+      /* Configura cómo se mostrará la imagen de fondo en cada slide. */
+      background: no-repeat center center scroll;
+      background-size: cover;
+    }
+    .carousel-item img {
+      /* Asegura que la imagen del carrusel se ajuste bien sin ser un fondo */
+      object-fit: cover;
+      height: 100%;
+    }
+
+    /* --- Estilos de las Secciones --- */
+    .featured-section {
+        /* Espaciado interno para las secciones principales. */
+        padding: 5rem 0;
+    }
+    .section-title {
+        /* Estilo para los títulos de sección. */
+        font-weight: 700;
+        margin-bottom: 3rem;
+    }
+
+    /* --- Estilos de las Tarjetas de Categoría --- */
+    .card-category {
+        /* Estilo base para las tarjetas de productos/categorías. */
+        border: none;
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra para dar profundidad. */
+    }
+    .card-category img {
+        /* Efecto de zoom suave en la imagen al pasar el mouse. */
+        transition: transform 0.4s ease;
+        border-radius: 0.5rem;
+    }
+    .card-category:hover img {
+        /* El efecto de zoom aplicado al pasar el mouse. */
+        transform: scale(1.05);
+    }
+    .card-img-overlay {
+        /* Capa semioscura sobre la imagen para que el texto resalte. */
+        background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+        display: flex; /* Permite alinear el contenido fácilmente. */
+        align-items: flex-end; /* Alinea el título en la parte inferior. */
+        justify-content: center; /* Centra el título horizontalmente. */
+    }
+    .card-category .card-title {
+        /* Estilo del título dentro de la tarjeta de categoría. */
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+    }
+
+    /* --- Estilos del Pie de Página (Footer) --- */
+    .footer {
+      background-color: #111;
+      color: #ccc;
+    }
+    .footer .social-icons a {
+        /* Estilos para los íconos de redes sociales. */
+        font-size: 1.5rem;
+        color: #ccc;
+        transition: color 0.3s ease;
+    }
+    .footer .social-icons a:hover {
+        /* Cambio de color al pasar el mouse. */
+        color: #fff;
+    }
+
+    /* --- Estilos del Carrito de Compras --- */
+    .cart-icon-container {
+        position: relative; /* Necesario para posicionar el contador. */
+        cursor: pointer;
+    }
+    .cart-counter {
+        /* Círculo rojo que muestra la cantidad de productos en el carrito. */
+        position: absolute;
+        top: -5px;
+        right: -10px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 10px;
+        font-weight: 700;
+        display: block; /* Cambiado a block para que se vea siempre (JavaScript lo controlará) */
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======================================================================= -->
+<!-- =================== BARRA DE NAVEGACIÓN (NAVBAR) ====================== -->
+<!-- ======================================================================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="logo.png" alt="Logo de Lubiz Jeans">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link" href="jeans.html">Jeans</a></li>
+        <li class="nav-item"><a class="nav-link" href="cargos.html">Cargo</a></li>
+        <li class="nav-item"><a class="nav-link" href="faldas.html">Faldas</a></li>
+      </ul>
+
+      <ul class="navbar-nav d-flex align-items-center">
+        <li class="nav-item ms-3">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal" aria-label="Mi Cuenta">
+            <i class="bi bi-person fs-4"></i>
+          </a>
+        </li>
+        <li class="nav-item ms-3">
+          <a class="nav-link cart-icon-container" id="cart-icon" data-bs-toggle="modal" data-bs-target="#cartModal">
+            <i class="bi bi-cart fs-4"></i>
+            <span class="cart-counter" id="cart-counter">0</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ======================================================================= -->
+<!-- =================== CARRUSEL DE IMÁGENES (SLIDER) ===================== -->
+<!-- ======================================================================= -->
+<div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="lu1.png.jpg" class="d-block w-100" alt="Ropa de moda en exhibición">
+    </div>
+    <div class="carousel-item">
+      <img src="lu2.png.jpg" class="d-block w-100" alt="Colección de jeans apilados">
+    </div>
+    <div class="carousel-item">
+      <img src="lu3.png.jpg" class="d-block w-100" alt="Persona vistiendo una chaqueta de moda">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
+</div>
+
+<!-- ======================================================================= -->
+<!-- =================== SECCIÓN DE COLECCIONES MODIFICADA ================= -->
+<!-- ======================================================================= -->
+<section class="featured-section bg-white">
+    <div class="container">
+        <h2 class="text-center text-dark section-title">Nuestras Colecciones</h2>
+        <!-- Fila ajustada para 3 elementos -->
+        <div class="row g-4">
+            <!-- Tarjeta Jeans -->
+            <div class="col-lg-4 col-md-6">
+                <a href="jeans.html" class="text-decoration-none">
+                    <div class="card text-white card-category">
+                        <img src="lu5.png.jpg" class="card-img" alt="Pantalones">
+                        <div class="card-img-overlay"><h3 class="card-title">Jeans</h3></div>
+                    </div>
+                </a>
+            </div>
+            <!-- Tarjeta Cargos -->
+            <div class="col-lg-4 col-md-6">
+                <a href="cargo.html" class="text-decoration-none">
+                    <div class="card text-white card-category">
+                        <img src="lu6.png.jpg" class="card-img" alt="Polos">
+                        <div class="card-img-overlay"><h3 class="card-title">Cargos</h3></div>
+                    </div>
+                </a>
+            </div>
+            <!-- Tarjeta Faldas -->
+            <div class="col-lg-4 col-md-6">
+                <a href="faldas.html" class="text-decoration-none">
+                    <div class="card text-white card-category">
+                        <img src="lu7.png.jpg" class="card-img" alt="Faldas">
+                        <div class="card-img-overlay"><h3 class="card-title">Faldas</h3></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================================================================= -->
+<!-- ========================== PIE DE PÁGINA (FOOTER) ===================== -->
+<!-- ======================================================================= -->
+<footer class="footer py-5">
+  <div class="container text-center">
+    <p class="mb-3">Síguenos en nuestras redes sociales</p>
+    <div class="social-icons mb-4">
+      <a href="https://wa.me/51916796360" target="_blank" class="mx-3"><i class="bi bi-whatsapp"></i></a>
+      <a href="#" class="mx-3"><i class="bi bi-instagram"></i></a>
+      <a href="#" class="mx-3"><i class="bi bi-tiktok"></i></a>
+      <a href="#" class="mx-3"><i class="bi bi-facebook"></i></a>
+    </div>
+    <p class="mb-0 small">&copy; 2025 Lubiz Jeans. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+
+<!-- ======================================================================= -->
+<!-- ========================== VENTANAS MODALES =========================== -->
+<!-- ======================================================================= -->
+
+<!-- MODAL DEL CARRITO -->
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header"><h5 class="modal-title" id="cartModalLabel"><i class="bi bi-cart-check"></i> Tu Carrito</h5><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        <div class="modal-body" id="cart-items"></div>
+        <div class="modal-footer">
+          <h5 class="me-auto">Total: <span id="cart-total" class="fw-bold">S/ 0.00</span></h5>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Seguir Comprando</button>
+          <button type="button" class="btn btn-success" id="checkout-button" onclick="checkout()"><i class="bi bi-qr-code-scan"></i> Pagar con Yape</button>
+        </div>
+      </div>
+    </div>
+</div>
+  
+<!-- MODAL DE YAPE -->
+<div class="modal fade" id="yapeModal" tabindex="-1" aria-labelledby="yapeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #7b217a; color: white;"><h5 class="modal-title" id="yapeModalLabel">Pagar con Yape</h5><button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button></div>
+        <div class="modal-body text-center">
+          <p class="fw-bold">Escanea este QR para pagar</p>
+          <img src="imagenes/qr-yape.png" alt="Código QR de Yape" class="img-fluid mb-3" style="max-width: 250px;">
+          <h4 id="yape-total-price" class="card-price"></h4>
+          <div class="alert alert-info mt-3">
+            <strong>Instrucciones:</strong>
+            <ol class="text-start small"><li>Abre tu app Yape y escanea el código QR.</li><li>Ingresa el monto total exacto y realiza el pago.</li><li>Envíanos la constancia de pago al WhatsApp.</li></ol>
+          </div>
+          <a id="yape-whatsapp-link" href="#" target="_blank" class="btn btn-success w-100 mt-2"><i class="bi bi-whatsapp"></i> Enviar constancia</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- MODAL DE AUTENTICACIÓN -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="authModalLabel">Iniciar Sesión / Registrarse</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <p class="mb-4">Elige cómo quieres continuar:</p>
+                <div class="d-grid gap-3">
+                    <a href="login.html" class="btn btn-primary btn-lg">Iniciar Sesión</a>
+                    <div class="my-3 text-muted">o</div>
+                    <div class="d-flex justify-content-center">
+                        <div class="g_id_signin" data-type="standard" data-shape="rectangular" data-theme="outline" data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ======================================================================= -->
+<!-- ========================== SCRIPTS (JAVASCRIPT) ======================= -->
+<!-- ======================================================================= -->
+
+<!-- Configuración para el inicio de sesión con Google. -->
+<div id="g_id_onload"
+     data-client_id="TU_CLIENT_ID_DE_GOOGLE" <!-- ¡IMPORTANTE: Reemplaza con tu Client ID! -->
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback="handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+
+<!-- Librería de JavaScript de Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Cliente de Google Sign-In -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<!-- Tus propios archivos de JavaScript -->
+<script src="car.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
